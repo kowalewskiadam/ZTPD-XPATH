@@ -1,1 +1,54 @@
+zad 9
+<table>
+        <tr><th>Kraj</th><th>Stolica</th></tr>
+        <xsl:apply-templates select="SWIAT/KRAJE/KRAJ"/>
+</table>
 
+zad 11 - wrócić jeszcze
+<xsl:apply-templates select="SWIAT/KRAJE/KRAJ[@KONTYNENT='k1']"/>
+
+zad 12 - wrócić jeszcze
+
+zad 15
+Liczba krajów: <xsl:value-of select="count(SWIAT/KRAJE/KRAJ[@KONTYNENT='k1'])"/>
+
+zad 17
+<td><xsl:value-of select="position()"/></td>
+
+zad 18
+<tr><th>lp</th><th>Kraj</th><th>Stolica</th></tr>
+
+zad 20
+<xsl:apply-templates select="SWIAT/KRAJE/KRAJ[@KONTYNENT='k1']">
+            <xsl:sort select="1"/>
+</xsl:apply-templates>
+
+zad 21
+<xsl:apply-templates select="SWIAT/KRAJE/KRAJ[@KONTYNENT='k1']">
+            <xsl:sort select="NAZWA"/>
+</xsl:apply-templates>
+
+zad 27
+for $k in doc('XPath-XSLT/swiat.xml')/SWIAT/KRAJE/KRAJ
+return <KRAJ>
+    {$k/NAZWA, $k/STOLICA}
+</KRAJ>
+
+zad 28
+for $k in doc('XPath-XSLT/swiat.xml')
+/SWIAT/KRAJE/KRAJ
+where starts-with($k/NAZWA, "A")
+return <KRAJ>
+    {$k/NAZWA, $k/STOLICA}
+</KRAJ>
+
+zad 29
+for $k in doc('XPath-XSLT/swiat.xml')
+/SWIAT/KRAJE/KRAJ
+where substring($k/NAZWA, 1,1) = substring($k/STOLICA, 1,1)
+return <KRAJ>
+    {$k/NAZWA, $k/STOLICA}
+</KRAJ>
+
+zad 32
+doc('XPath-XSLT/zesp_prac.xml')//NAZWISKO
