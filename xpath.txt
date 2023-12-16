@@ -4,10 +4,11 @@ zad 9
         <xsl:apply-templates select="SWIAT/KRAJE/KRAJ"/>
 </table>
 
-zad 11 - wrócić jeszcze
+zad 11
 <xsl:apply-templates select="SWIAT/KRAJE/KRAJ[@KONTYNENT='k1']"/>
 
-zad 12 - wrócić jeszcze
+zad 12
+<xsl:apply-templates select="SWIAT/KRAJE/KRAJ[@KONTYNENT=/SWIAT/KONTYNENTY/KONTYNENT[contains(NAZWA, 'Europe')]/@ID]">
 
 zad 15
 Liczba krajów: <xsl:value-of select="count(SWIAT/KRAJE/KRAJ[@KONTYNENT='k1'])"/>
@@ -52,3 +53,19 @@ return <KRAJ>
 
 zad 32
 doc('XPath-XSLT/zesp_prac.xml')//NAZWISKO
+
+zad 33
+doc('XPath-XSLT/zesp_prac.xml')
+//NAZWA[text() = 'SYSTEMY EKSPERCKIE']//parent::*//NAZWISKO//text()
+
+zad 34
+count(doc('XPath-XSLT/zesp_prac.xml')
+//ID_ZESP[text() = '10']//parent::*//NAZWISKO)
+
+zad 35
+doc('XPath-XSLT/zesp_prac.xml')
+//ID_SZEFA[text() = '100']//parent::*//NAZWISKO
+
+zad 36
+sum(doc('C:/Users/kowal/Downloads/XPath-XSLT/XPath-XSLT/zesp_prac.xml')
+//ID_ZESP[parent::*//NAZWISKO[text() = 'BRZEZINSKI']]//parent::* // PLACA_POD)
